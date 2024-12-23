@@ -18,7 +18,8 @@ const SearchPage = () => {
                 {searchData.results.map((item) => (
                     <FilmCard
                         key={item.id}
-                        title={item.name}
+                        id={item.id}
+                        title={item.name || item.title}
                         description={item.overview}
                         type={item.media_type}
                         date={item.release_date}

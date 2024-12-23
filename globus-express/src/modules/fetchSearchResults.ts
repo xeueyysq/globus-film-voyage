@@ -37,12 +37,12 @@ export const fetchSearchResults = async (req: Request, res: Response) => {
 
         console.dir(data);
         res.status(200).json(data);
-    } catch (e) {
+    } catch (e) {   
         if (axios.isAxiosError(e)) {
-            console.error('Ошибка поиска книг:', e.response?.data || e.message);
+            console.error('Ошибка поиска книг:', e.response?.data || e.message || e);
         } else {
             console.error('Неизвестная ошибка:', e);
         }
-        res.status(500).send('Ошибка сервера');
+        res.status(500).send('Ошибка сервера' + e);
     }
 }

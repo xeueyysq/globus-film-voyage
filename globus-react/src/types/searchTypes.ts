@@ -1,4 +1,5 @@
 export interface FilmCardProps {
+    id: number;
     title: string,
     description: string,
     // genres: [],

@@ -1,5 +1,5 @@
 import { Input, Select, Space} from 'antd';
-import axios from 'axios';
+import instance from '../axios'
 import { useStore } from '../useStore';
 import type { GetProps } from 'antd';
 import { useState } from 'react';
@@ -33,8 +33,7 @@ const SearchBar = () => {
 
     const search = async (value: string) => {
         try {
-            console.log(value, type)
-            const response = await axios.get(`/api/search`, {
+            const response = await instance.get('/search', {
                 params: { value, type }
             });
             setSearchData(response.data);
